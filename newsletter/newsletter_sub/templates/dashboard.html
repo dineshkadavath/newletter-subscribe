@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+{% block head %}
+  
+<meta charset="utf-8">   
+<title>Newsletter</title>   
+<meta name="description" content="Bootstrap.">  
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+{% endblock %}
+{% block content %}
+
+  
+<body style="margin:20px auto">  
+<div class="container">
+<div class="row header" style="text-align:center;color:green">
+<h3 style="color:gray">Newsletter Subscription Details</h3>
+</div>
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th>NO</th>  
+            <th>Name</th>  
+            <th>Email</th>  
+            <th>Subscription</th>  
+          </tr>  
+        </thead>  
+        <tbody>
+        {% for each in users%}
+            <tr>  
+                <td>{{forloop.counter}}</td>  
+                <td>{{each.name}}</td>  
+                <td>{{each.email}}</td>  
+                <td>{{each.subscribe}}</td>  
+          </tr>  
+        {% endfor %}  
+        </tbody>  
+      </table>  
+	  </div>
+{% endblock %}
